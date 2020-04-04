@@ -4,8 +4,11 @@ import TP0.Item.Item;
 import TP0.Item.TipoDeProducto;
 import TP0.Operacion.Excepciones.ExcepcionOperacionInvalida;
 import TP0.Operacion.Operacion;
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 
@@ -21,7 +24,7 @@ public class TestOperacion {
     @Test
     public void testCambiarPrecio() {
         impresora.cambiarPrecio(10000);
-        Assert.assertEquals(10000,impresora.getPrecio());
+        assertEquals(10000,impresora.getPrecio());
     }
 
     @Test
@@ -32,7 +35,7 @@ public class TestOperacion {
         items.add(placaDeVideo);
         items.add(armadoDePC);
         operacion.calcularValorDeOperacion();
-        Assert.assertEquals(37000,operacion.getValorOperacion());
+        assertEquals(37000,operacion.getValorOperacion());
 
     }
 
@@ -44,7 +47,7 @@ public class TestOperacion {
         items.add(placaDeVideo);
         items.add(armadoDePC);
         Documento documento = operacion.cerrarOperacion();
-        Assert.assertEquals(TipoDocumento.DOCUMENTO,documento.getTipo());
+        assertEquals(TipoDocumento.DOCUMENTO,documento.getTipo());
     }
 
     @Test
@@ -54,19 +57,16 @@ public class TestOperacion {
         items.add(impresora);
         items.add(placaDeVideo);
         Documento documento = operacion.cerrarOperacion();
-        Assert.assertEquals(TipoDocumento.REMITO,documento.getTipo());
+        assertEquals(TipoDocumento.REMITO,documento.getTipo());
 
     }
 
-    @Test(expected = ExcepcionOperacionInvalida.class)
+    @Test
     public void testOperacionVacia() {
         ArrayList<Item> items = new ArrayList<Item>();
         Operacion operacion = new Operacion(items);
-        Documento documento = operacion.cerrarOperacion();
+        Assertions.assertThrows(ExcepcionOperacionInvalida.class,() -> operacion.cerrarOperacion());
     }
 
-
-
-//  ver de hacer un test que no se pueda cambiar un precio desde el TP0.Documento.Documento o Remito
 
 }
