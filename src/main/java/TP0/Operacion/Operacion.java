@@ -1,5 +1,12 @@
+package TP0.Operacion;
+
+import TP0.Documento.TipoDocumento;
+import TP0.Item.Item;
+import TP0.Item.TipoDeProducto;
+import TP0.Documento.*;
+import TP0.Operacion.Excepciones.ExcepcionOperacionInvalida;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Operacion {
     public ArrayList<Item> items;

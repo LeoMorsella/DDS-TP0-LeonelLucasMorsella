@@ -1,3 +1,8 @@
+package TP0.Documento;
+
+import TP0.Documento.TipoDocumento;
+import TP0.Item.Item;
+
 import java.util.List;
 
 public class Documento {

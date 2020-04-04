@@ -1,3 +1,5 @@
+package TP0.Item;
+
 public class Item {
     private String nombre;
     private int precio;
