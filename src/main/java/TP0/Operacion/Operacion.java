@@ -4,7 +4,8 @@ import TP0.Documento.TipoDocumento;
 import TP0.Item.Item;
 import TP0.Item.TipoDeProducto;
 import TP0.Documento.*;
-import TP0.Operacion.Excepciones.ExcepcionOperacionInvalida;
+import TP0.Operacion.Excepciones.OperacionInvalidaExcepcion;
+
 
 import java.util.ArrayList;
 
@@ -29,6 +30,7 @@ public class Operacion {
     }
     public Documento generarDocumento(){
         Documento documento = new Documento(this.items,this.tipoDocumento,this.valorOperacion);
+        documento.getItems().stream().forEach(item -> item.cambiarEstado());
         return documento;
     }
 
@@ -48,7 +50,7 @@ public class Operacion {
             return generarDocumento();
         }
         else {
-            throw new ExcepcionOperacionInvalida("La operacion no tiene elementos");
+            throw new OperacionInvalidaExcepcion("La operacion no tiene elementos");
         }
     }
 }
