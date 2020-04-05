@@ -34,7 +34,7 @@ public class Operacion {
 
     public void validarTipoDeDocumento() {
         if(items.stream().anyMatch(item -> item.getTipo().equals(TipoDeProducto.SERVICIO))) {
-            this.tipoDocumento = tipoDocumento.DOCUMENTO;
+            this.tipoDocumento = tipoDocumento.NOTADEVENTA;
         }
         else {
             this.tipoDocumento = tipoDocumento.REMITO;

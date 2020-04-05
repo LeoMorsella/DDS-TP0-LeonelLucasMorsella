@@ -47,7 +47,7 @@ public class TestOperacion {
         items.add(placaDeVideo);
         items.add(armadoDePC);
         Documento documento = operacion.cerrarOperacion();
-        assertEquals(TipoDocumento.DOCUMENTO,documento.getTipo());
+        assertEquals(TipoDocumento.NOTADEVENTA,documento.getTipo());
     }
 
     @Test

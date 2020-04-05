@@ -6,9 +6,9 @@ import TP0.Item.Item;
 import java.util.List;
 
 public class Documento {
-    private List<Item> items;
-    private TipoDocumento tipo;
-    private int importeTotal;
+    private static List<Item> items;
+    private static TipoDocumento tipo;
+    private static int importeTotal;
 
     public Documento(List<Item> items, TipoDocumento tipo, int importeTotal) {
         this.items = items;
